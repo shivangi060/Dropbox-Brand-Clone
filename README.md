@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dropbox-Brand-Clone---Kraftbase
+Dropbox Brand Clone - Kraftbase
 
-## Getting Started
+1. Next.js + TypeScript
+ Next.js was chosen as the framework to leverage its built-in routing, optimized image handling, and server-side rendering features.
 
-First, run the development server:
+ TypeScript adds type safety and improves developer experience by reducing potential runtime errors.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Tailwind CSS
+Adopted Tailwind CSS for fast, utility-first styling directly in JSX, allowing rapid prototyping and consistent design patterns.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+It provides flexibility when working with responsive layouts and custom grid areas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Framer Motion
+Used Framer Motion for smooth and declarative animations:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Navbar fades and slides in on load.
 
-## Learn More
+AssetGrid items animate in staggered sequence when they enter the viewport.
 
-To learn more about Next.js, take a look at the following resources:
+Hover states for grid items include scale, rotate, and color transition effects.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Scroll-to-top button fades in/out based on scroll position and has hover animations.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Lenis Smooth Scrolling
+Integrated Lenis for smooth and inertia-based scrolling.
 
-## Deploy on Vercel
+Enhances the user experience by making scroll interactions feel more fluid across the entire layout.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Modular Component Structure
+Navbar.tsx: A fixed, animated navigation bar for branding and quick links.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+AssetGrid.tsx: A dynamic grid of brand sections with interactive icons and custom grid area layout using CSS Grid.
+
+SmoothScrollProvider.tsx: Global provider for applying Lenis to all pages.
+
+page.tsx: Combines all components and defines full-screen section anchors for each brand guideline (e.g., Logo, Typography, Motion).
+
+6. Interactive Asset Grid
+The grid items are configured using an assets array to map icons, colors, and target sections.
+
+Each grid item:
+
+Animates into view using useInView and useAnimation from Framer Motion.
+
+Supports hover state icon swaps and background transitions.
+
+Smooth scrolls to corresponding sections using native scrollIntoView.
+
+7. Scroll-to-Top Button
+A floating button appears after scrolling 300px down the page.
+
+Animated with Framer Motion for smooth entry/exit and hover scale.
+
+Uses native window.scrollTo with smooth behavior for quick UX improvement.
+
+8. Accessibility & UX
+All buttons and interactive elements have sufficient contrast.
+
+Smooth scroll actions provide a better visual transition between sections.
+
+Icons are paired with semantic section titles for clarity.
+
+9. Custom Grid Layout
+The grid areas in AssetGrid use grid-template-areas to create a visually interesting and asymmetric layout inspired by modern design systems.
+
+Optimized for both desktop and responsive views with Tailwind utilities.
